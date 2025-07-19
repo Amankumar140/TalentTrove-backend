@@ -13,6 +13,19 @@ const app = express();
 import dotenv from "dotenv";
 dotenv.config();
 
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // Local dev
+      "https://your-frontend.vercel.app" // Replace with your Vercel frontend URL
+    ],
+    credentials: true
+  })
+);
+
+
 const PORT = process.env.PORT || 6001;
 
 app.use(express.json());
@@ -24,7 +37,10 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin:  [
+      "http://localhost:5173",
+      "https://your-frontend.vercel.app"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
   },
 });
