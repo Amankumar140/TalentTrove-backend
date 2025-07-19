@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173", // Local dev
-      "https://talent-trove-fronted.vercel.app/" // Replace with your Vercel frontend URL
+      "https://talent-trove-fronted.vercel.app" // Replace with your Vercel frontend URL
     ],
     credentials: true
   })
@@ -39,7 +39,7 @@ const io = new Server(server, {
   cors: {
     origin:  [
       "http://localhost:5173",
-      "https://talent-trove-fronted.vercel.app/"
+      "https://talent-trove-fronted.vercel.app"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
   },
