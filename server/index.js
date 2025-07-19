@@ -27,6 +27,11 @@ app.use(cors());
 
 const server = http.createServer(app);
 
+app.get('/', (req, res) => {
+  res.send('TalentTrove Backend is Live!');
+});
+
+
 const io = new Server(server, {
     cors: {
         origin: '*',
